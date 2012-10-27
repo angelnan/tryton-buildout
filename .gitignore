@@ -1,0 +1,9 @@
+bin/
+develop-eggs
+eggs
+parts
+tryton
+trytond
+.installed.cfg
+.mr.developer.cfg
+
