@@ -256,6 +256,13 @@ if exitcode != 0:
 
 ws.add_entry(eggs_dir)
 ws.require(requirement)
+
+# Create 'build' directory
+# path = os.path.join(os.path.dirname(__file__))
+build_path = os.path.abspath(os.path.join(os.path.dirname(__file__),"build"))
+if not os.path.exists(build_path):
+    os.makedirs(build_path)
+
 import zc.buildout.buildout
 zc.buildout.buildout.main(args)
 if not options.eggs:  # clean up temporary egg directory

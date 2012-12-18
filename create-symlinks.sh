@@ -23,7 +23,7 @@ if [ "$modules" != "" ]; then
 fi
 
 remaining=$(ls $dst | wc -l)
-if [ $remaining != '0' ]; then
+if [ $remaining -gt 1 ]; then
 	echo "There are still files in $dst directory after removing all symlinks."
 	echo "Please ensure there are no files or directories there."
 	echo "Files and directories found:"
@@ -37,6 +37,8 @@ echo $(pwd)
 # We add sort because we want 'custom-modules' to be processed first. This way it's
 # possible to override modules in addons with new modules with the same name.
 list=$(find $src -iname "tryton.cfg" | sort | awk '{system("dirname "$dst)}')
+
+echo "list: $list"
 
 for i in $list; do 
     if [ -d "$i" ]; then
