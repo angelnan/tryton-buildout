@@ -1,0 +1,31 @@
+Per posar en marxa el virtualenv cal:
+
+* Si no està creat l'entorn.
+
+virtualenv --no-site-packages  .
+
+* Per activar l'entorn
+
+source bin/activate
+
+* Per Instal·lar les dependencies:
+
+pip install -r requirements.txt. 
+
+Actualment hi ha un fitxer amb els requeriments, cal comprobar que siguin tots
+
+* Per mirar les llibreries instal·lades en l'entorn virtual
+
+yolk -l
+
+* Per actualitzar el llistat de dependencies
+
+pip freeze > requirementes
+
+* Per sortir del sistema virtual
+
+deactivate
+
+
+
+
