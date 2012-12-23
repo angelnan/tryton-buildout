@@ -3,7 +3,7 @@
 # dst=$1
 # src=$2
 
-dst=trytond/trytond/modules
+dst=../trytond/trytond/modules
 src=../../../modules
 
 if [[ -z "$dst" || -z "$src" ]]; then
@@ -17,7 +17,6 @@ fi
 # do not remove modules created there by mistake.
 
 modules=$(find $dst -type l)
-
 if [ "$modules" != "" ]; then
     rm -f $modules
 fi
