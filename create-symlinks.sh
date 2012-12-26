@@ -21,6 +21,9 @@ if [ "$modules" != "" ]; then
     rm -f $modules
 fi
 
+# Remove the possible python compiled files to ensure that the __init.py
+#  it's the only file that is in the trytond modules repository
+rm -f $dst/*.pyc
 remaining=$(ls $dst | wc -l)
 if [ $remaining -gt 1 ]; then
 	echo "There are still files in $dst directory after removing all symlinks."
