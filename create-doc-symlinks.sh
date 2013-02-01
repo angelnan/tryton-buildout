@@ -61,10 +61,10 @@ for i in $list; do
     fi
     f=$(find $i -iname "*.rst")
     if [ -n "$f" ]; then
-        if [ -d "$i" ]; then
+        if [ -d "$i" -a -d "$i/es" ]; then
             module=$(basename `dirname $i`)
-            echo "create symlink of $i in $module"
-            ln -s "$i" "$module"
+            echo "create symlink of $i/es in $module"
+            ln -s "$i/es" "$module"
         else
             echo "'$i' doesn't exist"
         fi
@@ -74,6 +74,6 @@ for i in $list; do
 done
 
 echo "create symlink for the master_root file"
-ln -s $src/trytond-doc/trytond_doc/doc/index.rst index.rst
+ln -s $src/trytond-doc/trytond_doc/userdoc/index.rst.es index.rst
 
 popd
