@@ -7,4 +7,5 @@ trytond/
 modules/
 .installed.cfg
 .mr.developer.cfg
-
+*~
+var/
