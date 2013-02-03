@@ -56,9 +56,9 @@ pushd $dst
 list=$(find $src -type d -iname "doc" | grep -v "/\.")
 
 for i in $list; do
-    if ! test -f "$i/../tryton.cfg"; then
-        continue
-    fi
+#    if ! test -f "$i/../tryton.cfg"; then
+#        continue
+#    fi
     f=$(find $i -iname "*.rst")
     if [ -n "$f" ]; then
         if [ -d "$i" -a -d "$i/es" ]; then
