@@ -1,31 +1,36 @@
-Per posar en marxa el virtualenv cal:
+To active the virtualenv:
 
-* Si no està creat l'entorn.
+* You need some basic system packages. Install them as 'root':
 
-virtualenv --no-site-packages  .
+    aptitude install python python-pip libxml2-dev libxslt1-dev libsasl2-dev libldap2-dev
 
-* Per activar l'entorn
+* Go to the main directory where is tryton, normaly one directory above it.
 
-source bin/activate
+* If the enviroment is not created, do in the main directory:
 
-* Per Instal·lar les dependencies:
+    virtualenv --no-site-packages  .
 
-pip install -r requirements.txt. 
+* To active the environment:
 
-Actualment hi ha un fitxer amb els requeriments, cal comprobar que siguin tots
+    source bin/activate
 
-* Per mirar les llibreries instal·lades en l'entorn virtual
+* To install dependencies:
 
-yolk -l
-
-* Per actualitzar el llistat de dependencies
-
-pip freeze > requirementes
-
-* Per sortir del sistema virtual
-
-deactivate
+    pip install -r tryton-buildout/requirements.txt
 
 
+More things to know:
 
+* To see the libraries installed in the virtualenv:
 
+    yolk -l
+
+* If you neet to update the dependencies file:
+
+    pip freeze > tryton-buildout/requirements.txt
+
+    (And commit the changes)
+
+* To logout the virtualnev:
+
+    deactivate
