@@ -34,6 +34,9 @@ It also **requires an specific directory organization**:
     symlink to this file.
 
 
+Prepare a Tryton instance
+-------------------------
+
 To prepare an instance of Tryton based on this project you can follow the next
 commands (here is not included commands to set the PROJECT_DIRECTORY as a VCS
 repository):
@@ -73,4 +76,29 @@ To **launch the Tryton client (GTK)** do it from sources:::
 
   #. cd PROJECT_DIRECTORY/tryton
   #. ./bin/tryton
+
+
+Prepare to generate User documentation
+--------------------------------------
+
+You will need the sources of Tryton server and modules because User
+documentation sources are there. So, you need to do the previous step except
+launch the Tryton server nor client.
+
+After that, you can follow the next commands from 'tryton-buildout' directory:
+
+#. ./build/bin/buildout -c user.cfg
+#. ./create-doc-symlinks.sh
+#. cd ../userdoc
+#. pip install -r requirements.txt
+#. make
+
+Now, you can point your navigator to *userdoc/_build/html/index.html* to view
+the auto-generated **Users and Administrators manual**.
+
+For more information about *userdoc*, see the README file of `tryton-doc
+project`_ (you will find its sources in *modules/tryton-doc* directory).
+
+.. _tryton-doc project: https://bitbucket.org/trytonspain/trytond-doc
+
 
