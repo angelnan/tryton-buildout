@@ -21,6 +21,21 @@ To active the virtualenv:
 
 More things to know:
 
+* To automate the active and deactive the virtualenv, add the next function in
+the .bashrc or .zshrc:
+
+    function cd() {
+        builtin cd $@;
+        if [ -f .env ]; then
+            sh .env
+            source bin/activate
+        else
+            if which deactivate > /dev/null; then
+                deactivate
+            fi
+        fi
+    }
+
 * To see the libraries installed in the virtualenv:
 
     yolk -l
