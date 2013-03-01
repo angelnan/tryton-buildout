@@ -2,7 +2,7 @@ To active the virtualenv:
 
 * You need some basic system packages. Install them as 'root':
 
-    aptitude install python python-pip libxml2-dev libxslt1-dev libsasl2-dev libldap2-dev
+    aptitude install python python-pip libxml2-dev libxslt1-dev libsasl2-dev libldap2-dev postgresql-server-dev-all python-dev
 
 * Go to the main directory where is tryton, normaly one directory above it.
 
