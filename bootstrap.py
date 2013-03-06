@@ -147,6 +147,12 @@ if subprocess.call(cmd, env=dict(os.environ, PYTHONPATH=distribute_path)) != 0:
         "Failed to execute command:\n%s",
         repr(cmd)[1:-1])
 
+# Create 'build' directory
+# path = os.path.join(os.path.dirname(__file__))
+build_path = os.path.abspath(os.path.join(os.path.dirname(__file__),"build"))
+if not os.path.exists(build_path):
+    os.makedirs(build_path)
+
 ######################################################################
 # Import and run buildout
 
