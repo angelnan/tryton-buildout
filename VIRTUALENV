@@ -1,55 +1,85 @@
+(All things work on debian squeeze)
+
 To active the virtualenv:
 
 * You need some basic system packages. Install them as 'root':
 
-    aptitude install python python-pip libxml2-dev libxslt1-dev libsasl2-dev libldap2-dev python-dev
-    aptitude install git mercurial
-    aptitude install postgresql libpq5 libpq-dev
-
     pip install virtualenv virtualenvwrapper
 
-* Go to the main directory where is tryton, normaly one directory above it.
+* Add the next lines at the end of the .bashrc or .zshrc file:
+
+    # Activate virtualenvwrapper
+    export WORKON_HOME=$HOME/.virtualenvs
+    export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+    source /usr/local/bin/virtualenvwrapper.sh
+
+* Refresh bash or zsh:
+
+    source ~/.bashrc
+
+    or
+
+    source ~/.zshrc
+
+* Go to the main directory where is tryton, normaly 2 directory above it.
 
 * If the enviroment is not created, do in the main directory:
 
-    virtualenv --no-site-packages  .
-
-* To active the environment:
-
-    source bin/activate
+    mkvirtualenv <TRYTON_FOLDER_NAME>
 
 * To install dependencies:
 
-    pip install -r tryton-buildout/requirements.txt
+    pip install -r nan-tryton/tryton-buildout/requirements.txt
 
 
 More things to know:
 
-* To automate the active and deactive the virtualenv, add the next function in
+* To logout the virtualnev:
+
+    deactivate
+
+* To login the virtualenv:
+
+    workon <VIRTUALENV_NAME>
+
+* To list the possible virtualenv's:
+
+    workon
+
+* To automate the virtualenv login, add the next function in
 the .bashrc or .zshrc:
 
+    # automatic de/activate virtualenv
     function cd() {
         builtin cd $@;
+        typeset venv
         if [ -f .env ]; then
-            sh .env
-            source bin/activate
-        else
-            if which deactivate > /dev/null; then
-                deactivate
+            venv=`sh .env`
+            if [[ "${VIRTUAL_ENV:t}" != "$venv" ]]; then
+                if workon | grep -q "$venv"; then
+                     workon "$venv"
+                fi
             fi
         fi
     }
+
+    - Refresh the bash or zsh like explained before.
+
+    - You need in each virtualenv the file .env with:
+
+    echo "${PWD##*/}"
+
+* Commands for the virtualenvwrapper:
+
+    http://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html
 
 * To see the libraries installed in the virtualenv:
 
     yolk -l
 
-* If you neet to update the dependencies file:
+* If you need update the dependencies file, first make 'yolk' and after:
 
     pip freeze > tryton-buildout/requirements.txt
 
-    (And commit the changes)
-
-* To logout the virtualnev:
-
-    deactivate
+    - Remember to remove the 'distribute' from requirements.txt file.
+    - And commit the changes.
