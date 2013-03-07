@@ -1,8 +1,0 @@
-python 
-python-pip
-libxml2-dev
-libxslt1-dev
-libsasl2-dev
-libldap2-dev
-postgresql-server-dev-all
-python-dev
