@@ -4,7 +4,7 @@
 # src=$2
 
 dst=../userdoc
-src=../modules
+src=../trytond/trytond/modules
 
 
 if [[ -z "$dst" || -z "$src" ]]; then

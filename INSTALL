@@ -6,4 +6,3 @@
 
 python bootstrap.py
 ./build/bin/buildout -c buildout.cfg
-./create-symlinks.sh

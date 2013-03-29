@@ -9,10 +9,10 @@ repositories and different VCS (git, hg...).
 Currently, it is not integrated with Virtualenv. It doesn't install required
 libraries, it uses Python and libraries of the system.
 
-It **won't install trytond and modules**. It puts the sources in a directory
-and creates symlinks to module sources in *trytond/modules* subdirectory. Then,
-you have to launch *trytond* from corresponding subdirectory and using the
-script in *bin*, to use the local/project *trytond* and modules.
+It **install trytond and put the module sources in the trytond/modules
+subdirectory**. Then, you have to launch *trytond* from corresponding
+subdirectory and using the script in *bin*, to use the local/project *trytond*
+and modules.
 
 It also **requires an specific directory organization**:
 
@@ -25,8 +25,6 @@ It also **requires an specific directory organization**:
     by buidlout.
   * **tryton**: clone of *tryton* project repository. It is get automatically
     by buildout.
-  * **modules**: directory with modules sources inside (clone of each module
-    repository). It is created and filled automatically by buildout.
   * **userdoc**: if you generate the Dynamic User's Manual (independent
     buildout configuration) it is created automatically.
   * **local.cfg**: Buildout configuration file with project specific modules
@@ -97,7 +95,8 @@ Now, you can point your navigator to *userdoc/_build/html/index.html* to view
 the auto-generated **Users and Administrators manual**.
 
 For more information about *userdoc*, see the README file of `tryton-doc
-project`_ (you will find its sources in *modules/tryton-doc* directory).
+project`_ (you will find its sources in *trytond/trytond/modules/tryton-doc*
+directory).
 
 .. _tryton-doc project: https://bitbucket.org/trytonspain/trytond-doc
 
