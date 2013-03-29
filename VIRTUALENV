@@ -7,10 +7,11 @@ To active the virtualenv:
     pip install virtualenv virtualenvwrapper
 
 * Add the next lines at the end of the .bashrc or .zshrc file:
+  (you can change the python version for >2.6 not less)
 
     # Activate virtualenvwrapper
     export WORKON_HOME=$HOME/.virtualenvs
-    export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+    export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='----python=/usr/bin/python2.6  --system-site-packages'
     source /usr/local/bin/virtualenvwrapper.sh
 
 * Refresh bash or zsh:
@@ -33,6 +34,10 @@ To active the virtualenv:
 
 
 More things to know:
+
+* For the Nereid use you have to install flask:
+
+    pip install flask
 
 * To logout the virtualnev:
 
