@@ -49,12 +49,11 @@ repository):
 
     [sources]
 
-#. git clone https://bitbucket.org/trytonspain/tryton-buildout.git
+#. hg clone https://bitbucket.org/trytonspain/tryton-buildout
 #. cd tryton-buildout
 #. pip install -r requirements.txt
 #. python bootstrap.py
 #. ./build/bin/buildout -c buildout.cfg
-#. ./create-symlinks.sh
 
 
 Now, you can **launch the Tryton server** in two ways:
