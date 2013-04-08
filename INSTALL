@@ -4,5 +4,7 @@
 #    git mercurial
 #    postgresql postgresql-plpython-<VERSION> libpq5 libpq-dev
 
+# The buildout use a mr.developer hacked
+
 python bootstrap.py
 ./build/bin/buildout -c buildout.cfg
